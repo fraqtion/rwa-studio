@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Code2, Image, Box } from 'lucide-react';
+import { Code2, Image, Box, List } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Homepage() {
@@ -33,9 +33,19 @@ export default function Homepage() {
           </p>
         </div>
       </div>
-      <Button size="lg" onClick={() => navigate('/studio')}>
-        Start Creating Ownables
-      </Button>
+      <div className="flex flex-col items-center space-y-4">
+        <Button size="lg" onClick={() => navigate('/new')}>
+          Start Creating Ownables
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => navigate('/projects')}
+          className="flex items-center"
+        >
+          <List className="mr-2 h-4 w-4" />
+          View Existing Projects
+        </Button>
+      </div>
     </div>
   );
 }
