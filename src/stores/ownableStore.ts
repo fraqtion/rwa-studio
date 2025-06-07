@@ -231,7 +231,9 @@ interface OwnableStore {
 
   // Ownable management
   createOwnable: (name: string) => Promise<void>;
-  importOwnable: (folderHandle: FileSystemDirectoryHandle) => Promise<void>;
+  importOwnable: (
+    folderHandle: FileSystemDirectoryHandle | { name: string; folder: Folder },
+  ) => Promise<void>;
   deleteOwnable: (name: string) => Promise<void>;
   setActiveOwnable: (name: string | null) => void;
   loadOwnables: () => Promise<void>;
@@ -309,9 +311,21 @@ const useOwnableStore = create<OwnableStore>((set, get) => ({
   importOwnable: async (folderHandle) => {
     set({ isLoading: true });
     try {
-      const folder = await processDirectory(folderHandle);
+      let folder: Folder;
+      let ownableName: string;
+
+      if ('values' in folderHandle) {
+        // Handle FileSystemDirectoryHandle
+        folder = await processDirectory(folderHandle);
+        ownableName = folderHandle.name;
+      } else {
+        // Handle plain object
+        folder = folderHandle.folder;
+        ownableName = folderHandle.name;
+      }
+
       const ownable: Ownable = {
-        name: folderHandle.name,
+        name: ownableName,
         folder,
         assets: {
           images: [],
@@ -353,9 +367,9 @@ const useOwnableStore = create<OwnableStore>((set, get) => ({
       set((state) => ({
         ownables: {
           ...state.ownables,
-          [folderHandle.name]: ownable,
+          [ownableName]: ownable,
         },
-        activeOwnable: folderHandle.name,
+        activeOwnable: ownableName,
       }));
     } catch (error) {
       console.error('Error importing ownable:', error);

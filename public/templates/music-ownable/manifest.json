@@ -1,0 +1,16 @@
+{
+  "files": [
+    "Cargo.toml",
+    "rustfmt.toml",
+    "assets.json",
+    "src/contract.rs",
+    "src/msg.rs",
+    "src/state.rs",
+    "src/error.rs",
+    "src/lib.rs",
+    "assets/index.html",
+    "assets/audio.json",
+    "assets/images.json",
+    "examples/schema.rs"
+  ]
+}

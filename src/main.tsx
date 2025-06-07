@@ -5,7 +5,6 @@ import './index.css';
 import App from './App.tsx';
 import { initCleanupListener } from './common/utils/cleanupUtils';
 
-// Initialize the cleanup event listener
 initCleanupListener();
 
 createRoot(document.getElementById('root')!).render(

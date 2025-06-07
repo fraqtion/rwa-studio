@@ -3,6 +3,7 @@ import RwaStudioEditor from '@/components/studio';
 import Homepage from '@/features/public';
 import NewProject from '@/components/project/NewProject';
 import ProjectList from '@/components/project/ProjectList';
+import SamplesPage from '@/features/samples';
 
 export const publicRoutes = [
   {
@@ -16,6 +17,10 @@ export const publicRoutes = [
   {
     path: '/projects',
     element: <ProjectList />,
+  },
+  {
+    path: '/samples',
+    element: <SamplesPage />,
   },
   {
     path: '/studio',

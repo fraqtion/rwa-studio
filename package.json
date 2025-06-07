@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run cleanup && npm run build:ownable.js && vite || echo 'Starting Vite without ownable.js' && vite",
+    "dev": "npm run cleanup && vite",
     "prebuild": "npm run clean",
     "build": "npm run build:ownable.js && tsc -b && vite build || echo 'Building without ownable.js' && tsc -b && vite build",
     "postbuild": "npm run clean",
@@ -28,6 +28,7 @@
     "@monaco-editor/react": "^4.7.0",
     "@radix-ui/react-checkbox": "^1.1.4",
     "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tabs": "^1.1.3",

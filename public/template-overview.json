@@ -1,0 +1,22 @@
+{
+  "templates": [
+    {
+      "id": "static-ownable",
+      "name": "Static Ownable",
+      "description": "A template for creating static ownables with basic functionality",
+      "image": "/images/milad-fakurian.jpg",
+      "category": "Basic",
+      "type": "static-ownable",
+      "tags": ["Static", "Basic", "Beginner"]
+    },
+    {
+      "id": "music-ownable",
+      "name": "Music Ownable",
+      "description": "A template for creating music-based ownables with audio support",
+      "image": "/images/music-cover.webp",
+      "category": "Media",
+      "type": "music-ownable",
+      "tags": ["Music", "Audio", "Media"]
+    }
+  ]
+}
